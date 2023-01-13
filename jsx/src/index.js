@@ -5,6 +5,8 @@ import React from 'react';
 // ReactDOM is for computers, React Native is for mobile devices
 import ReactDOM from 'react-dom/client';
 
+import App from './App';
+
 // 2) Get a reference to the div with ID root
 // (referencing the element of root in the index.html file)
 const el = document.getElementById('root');
@@ -13,9 +15,6 @@ const el = document.getElementById('root');
 const root = ReactDOM.createRoot(el);
 
 // 4) Create a component
-function App() {
-    const inputType = 'number';
-    const minValue = 5;
 
     // props declared in the return must have:
         // double quotes for strings
@@ -23,10 +22,6 @@ function App() {
 
     // can't display an object ex: {config}, but you CAN use an object as a prop of something else
         // ex: <input abc={config} />
-    return (
-        <input style={{border: '3px solid red'}} type={inputType} min={minValue} max={10}/>
-    );
-}
 
 // 5) Show the component on the screen
 root.render(<App />)
@@ -44,3 +39,15 @@ root.render(<App />)
     // Ex: <li className="item" />
 // 5. In-line styles are provided as objects
     // Ex: <div style={{ textDecoration: 'none', padding: '5px' }}/>
+
+// Creating a component
+    // 1. Create a new file
+        // file should start with a capital letter
+    // 2. Make your component
+        // Should be a function that returns JSX
+    // 3. Export the component at the bottom of the file
+        // Ex: export default App;
+    // 4. Import the component into another file
+        // Ex: import App from './App';
+    // 5. Use the component
+        // Ex: <App />

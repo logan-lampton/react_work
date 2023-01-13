@@ -20,10 +20,27 @@ function App() {
     // props declared in the return must have:
         // double quotes for strings
         // curly braces for numbers
+
+    // can't display an object ex: {config}, but you CAN use an object as a prop of something else
+        // ex: <input abc={config} />
     return (
-        <input type={inputType} min={minValue} max={10}/>
+        <input style={{border: '3px solid red'}} type={inputType} min={minValue} max={10}/>
     );
 }
 
 // 5) Show the component on the screen
 root.render(<App />)
+
+
+// JSX rules
+// 1. All prop names follow camelCase
+    // Ex: <input maxLength={5} />
+// 2. Number attributes use curly braces
+    // Ex: {50}
+// 3. Boolean 'true' can be written with just the property name. False should be written with curly braces
+    // Ex for true: <input spellCheck />
+    // Ex for false: <input spellCheck={false} />
+// 4. The 'class attribute is written as 'className'
+    // Ex: <li className="item" />
+// 5. In-line styles are provided as objects
+    // Ex: <div style={{ textDecoration: 'none', padding: '5px' }}/>

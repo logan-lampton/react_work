@@ -14,11 +14,15 @@ const root = ReactDOM.createRoot(el);
 
 // 4) Create a component
 function App() {
-    let message = 'Bye there!'
-    if(Math.random() > 0.5){
-        message = 'Hello there!';
-    }
-    return <h1>{message}</h1>;
+    const inputType = 'number';
+    const minValue = 5;
+
+    // props declared in the return must have:
+        // double quotes for strings
+        // curly braces for numbers
+    return (
+        <input type={inputType} min={minValue} max={10}/>
+    );
 }
 
 // 5) Show the component on the screen

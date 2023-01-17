@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AnimalShow from './AnimalShow';
 
 function getRandomAnimal() {
     const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
@@ -17,12 +18,19 @@ function App() {
         setAnimals([...animals, getRandomAnimal()]);
     }
 
+    // .map takes an array and returns a new array with properties we assign
+    const renderedAnimals = animals.map(((animal, index) => {
+        // the type and key are properties
+        // key={index} is a property that we should add to all maps
+        return <AnimalShow type={animal} key={index} />
+    }))
+
     return(
         <div>
             {/* handleClick is a prop for the button below */}
             {/* handleClick is a reference; doesn't call immediately; want to call in the future when the user clicks, NOT when the app is rendered */}
             <button onClick={handleClick}>Add Animal</button>
-            <div>{animals}</div>
+            <div>{renderedAnimals}</div>
         </div>
     )
 }

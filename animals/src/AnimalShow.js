@@ -1,3 +1,4 @@
+import './AnimalShow.css'
 import { useState } from 'react';
 
 import bird from './svg/bird.svg';
@@ -23,10 +24,11 @@ function AnimalShow({ type }) {
     };
 
     return(
-        <div onClick={handleClick}>
+        <div className="animal-show" onClick={handleClick}>
             {/* the image src is the svgMap object at the key of the type of animal */}
-            <img alt="animal" src={svgMap[type]} />
+            <img className="animal" alt="animal" src={svgMap[type]} />
             <img
+                className="heart"
                 alt="heart"
                 src={heart} 
                 // inline style; {} means inline style; {{}} means an object in inline style

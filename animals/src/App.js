@@ -1,3 +1,6 @@
+// if just importing the entire file, no need to assign to a variable
+import './App.css'
+
 import { useState } from 'react';
 import AnimalShow from './AnimalShow';
 
@@ -26,11 +29,11 @@ function App() {
     }))
 
     return(
-        <div>
+        <div className="app">
             {/* handleClick is a prop for the button below */}
             {/* handleClick is a reference; doesn't call immediately; want to call in the future when the user clicks, NOT when the app is rendered */}
             <button onClick={handleClick}>Add Animal</button>
-            <div>{renderedAnimals}</div>
+            <div className="animal-list">{renderedAnimals}</div>
         </div>
     )
 }

@@ -23,6 +23,7 @@ function App() {
 
     // .map takes an array and returns a new array with properties we assign
     const renderedAnimals = animals.map(((animal, index) => {
+        // turned an array of strings into an array of components assigned to a new variable called 'renderAnimals'
         // the type and key are properties
         // key={index} is a property that we should add to all maps
         return <AnimalShow type={animal} key={index} />

@@ -4,18 +4,26 @@
 // Function will turn a search term into an array of image objects
 // Array of image objects needs to get into the ImageList component
 
-function SearchBar() {
+import { useState } from 'react';
+
+function SearchBar({ onSubmit }) {
+   const [term, setTerm] = useState('');
+    
     // be sure to use the method preventDefault() to prevent the page from reloading
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log('I need to tell the parent about some data');
+        onSubmit('dragons');
     }
+
+    const handleChange = (event) => {
+        setTerm(event.target.value);
+    };
 
     return ( 
     <div>
         {/* if you put an input within a form and press 'enter', a submit event is triggered */}
         <form onSubmit={handleFormSubmit}>
-            <input />
+            <input value={term} onChange={handleChange} />
         </form>
     </div>
     );

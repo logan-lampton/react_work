@@ -12,7 +12,7 @@ function SearchBar({ onSubmit }) {
     // be sure to use the method preventDefault() to prevent the page from reloading
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        onSubmit('dragons');
+        onSubmit(term);
     }
 
     const handleChange = (event) => {
@@ -23,6 +23,7 @@ function SearchBar({ onSubmit }) {
     <div>
         {/* if you put an input within a form and press 'enter', a submit event is triggered */}
         <form onSubmit={handleFormSubmit}>
+            {/* the value is what is shown in the search bar; a string value would always display and can't be deleted, setting it to the term typed in allows the state to update to reflect that */}
             <input value={term} onChange={handleChange} />
         </form>
     </div>

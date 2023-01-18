@@ -16,7 +16,6 @@ const searchImages = async(term) => {
 
     //return specifically the data results, not the entire response object
     // .data.results is based on the structure of the object returned from the successful GET request
-    console.log(response.data.results);
     return response.data.results;
 };
 

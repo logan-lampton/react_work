@@ -5,6 +5,7 @@
 // Array of image objects needs to get into the ImageList component
 
 import { useState } from 'react';
+import './SearchBar.css';
 
 function SearchBar({ onSubmit }) {
    const [term, setTerm] = useState('');
@@ -20,9 +21,10 @@ function SearchBar({ onSubmit }) {
     };
 
     return ( 
-    <div>
+    <div className="search-bar">
         {/* if you put an input within a form and press 'enter', a submit event is triggered */}
         <form onSubmit={handleFormSubmit}>
+            <label>Enter Search Term</label>
             {/* the value is what is shown in the search bar; a string value would always display and can't be deleted, setting it to the term typed in allows the state to update to reflect that */}
             <input value={term} onChange={handleChange} />
         </form>

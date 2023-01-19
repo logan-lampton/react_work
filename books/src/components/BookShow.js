@@ -16,7 +16,7 @@ function BookShow({ book, onDelete }) {
     // toggle logic to show component BookEdit
     let content = <h3>{book.title}</h3>;
     if(showEdit) {
-        content = <BookEdit />;
+        content = <BookEdit book={book}/>;
     }
 
     return (

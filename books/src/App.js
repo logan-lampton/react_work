@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // be sure to import axios
 import axios from 'axios';
 import BookCreate from './components/BookCreate';
@@ -7,6 +7,17 @@ import BookList from './components/BookList';
 function App() {
     // create a state array for all the books, called 'books'
     const [books, setBooks] = useState([]);
+
+    const showBooks = async () => {
+        const response = await axios.get('http://localhost:3001/books');
+        setBooks(response.data);
+    };
+
+    // utilize useEffect to only fetch the books array, when the page is first rendered
+    // [] as second argument means it is never called again after the first render
+    useEffect(() => {
+        showBooks();
+    }, []);
 
     // instead of 'title: title' in updatedBooks, we can just write 'title'
     // React doesn't talk to the server, so we are using axios

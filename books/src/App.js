@@ -44,10 +44,14 @@ function App() {
     };
 
     // edit using map
-    const editBookById = (id, newTitle) => {
+    const editBookById = async (id, newTitle) => {
+        await axios.put(`http://localhost:3001/books/${id}`, {
+            title: newTitle
+        })
+
         const updatedBooks = books.map((book) => {
             if(book.id === id) {
-                return { ...book, title: newTitle };
+                return { ...book, ...response.data };
             } return book;
         });
         setBooks(updatedBooks);

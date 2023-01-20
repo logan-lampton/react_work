@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BookEdit from './BookEdit';
 
-function BookShow({ book, onDelete }) {
+function BookShow({ book, onDelete, onEdit }) {
     const [showEdit, setShowEdit] = useState(false);
     
     // make a handleDeleteClick instead of directly calling onDelete on the onClick, since onDelete needs the id of the book
@@ -11,12 +11,17 @@ function BookShow({ book, onDelete }) {
 
     const handleEditClick = () => {
         setShowEdit(!showEdit);
-    }
+    };
+
+    const handleSubmit = (id, newTitle) => {
+        setShowEdit(false);
+        onEdit(id, newTitle);
+    };
 
     // toggle logic to show component BookEdit
     let content = <h3>{book.title}</h3>;
     if(showEdit) {
-        content = <BookEdit book={book}/>;
+        content = <BookEdit book={book} onSubmit={handleSubmit} />;
     }
 
     return (

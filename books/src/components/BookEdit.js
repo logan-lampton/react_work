@@ -1,7 +1,7 @@
 // input values always use state
 import { useState } from 'react';
 
-function BookEdit({ book }) {
+function BookEdit({ book, onSubmit }) {
     // use book.title, as 'book is an object with key value pairs of more than the title'
     const [title, setTitle] = useState(book.title);
 
@@ -11,9 +11,10 @@ function BookEdit({ book }) {
     };
 
     // handleSubmit, which updates state when the user submits the title
+    // 'title' is in scope in the BookEdit function
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`New title is ${title}`)
+        onSubmit(book.id, title);
     };
     
     return (

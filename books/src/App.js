@@ -13,7 +13,6 @@ function App() {
             { id: Math.floor(Math.random() * 999), title }
         ];
         setBooks(updatedBooks);
-        console.log(books);
     };
 
     // delete using filter
@@ -36,6 +35,7 @@ function App() {
 
     return(
         <div className="app">
+            <h1>Reading List</h1>
             <BookCreate onCreate={createBook} />
             <BookList books={books} onDelete={deleteBookById} onEdit={editBookById} />
         </div>

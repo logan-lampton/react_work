@@ -1,4 +1,6 @@
 import { useState } from 'react';
+// be sure to import axios
+import axios from 'axios';
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
 
@@ -7,11 +9,18 @@ function App() {
     const [books, setBooks] = useState([]);
 
     // instead of 'title: title' in updatedBooks, we can just write 'title'
-    const createBook = (title) => {
+    // React doesn't talk to the server, so we are using axios
+    // For a request, we need async/await
+    const createBook = async (title) => {
+        const response = await axios.post('http://localhost:3001/books', {
+            title
+        });
+
         const updatedBooks = [
             ...books, 
-            { id: Math.floor(Math.random() * 999), title }
+            response.data
         ];
+        // response.data is the exact data we created
         setBooks(updatedBooks);
     };
 

@@ -1,11 +1,11 @@
 // input values always use state
-import { useState, useContext } from 'react';
-import BooksContext from '../context/books';
+import { useState } from 'react';
+import useBooksContext from '../hooks/use-books-context';
 
 function BookEdit({ book, onSubmit }) {
     // use book.title, as 'book is an object with key value pairs of more than the title'
     const [title, setTitle] = useState(book.title);
-    const { editBookById } = useContext(BooksContext);
+    const { editBookById } = useBooksContext;
 
     // handleChange to grab what the user types as the new title
     const handleChange = (event) => {

@@ -1,11 +1,11 @@
 // modify state for 'books' in the App.js component
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 // the BooksContext import is from up one directory, so '..'
-import BooksContext from '../context/books'
+import useBooksContext from '../hooks/use-books-context';
 
 function BookCreate() {
     const [title, setTitle] = useState('');
-    const { createBook } = useContext(BooksContext);
+    const { createBook } = useBooksContext;
 
     const handleChange = (event) => {
         setTitle(event.target.value);

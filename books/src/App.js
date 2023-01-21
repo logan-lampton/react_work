@@ -1,8 +1,7 @@
-import { useEffect, useContext, useState } from 'react';
+import { useEffect, useContext} from 'react';
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
 import BooksContext from './context/books';
-import axios from 'axios';
 
 function App() {
     // utilize useContext; make a variable destructuring the showBooks function from BooksContext file

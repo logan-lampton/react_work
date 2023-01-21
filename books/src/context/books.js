@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 // be sure to import axios
 import axios from 'axios';
+
 const BooksContext = createContext();
 
 function Provider({ children }) {
@@ -8,7 +9,7 @@ function Provider({ children }) {
     // create a state array for all the books, called 'books'
     const [books, setBooks] = useState([]);
 
-    const showBooks = async () => {
+    const fetchBooks = async () => {
         const response = await axios.get('http://localhost:3001/books');
         setBooks(response.data);
     };
@@ -58,19 +59,19 @@ function Provider({ children }) {
     // we could save typing by making the keys and values the same, then just writing out one word for both
         // Instead of 'books: books', it would just read as 'books'
     const valueToShare = {
-        books: books,
-        deleteBookById: deleteBookById,
-        editBookById: editBookById,
-        createBook: createBook,
-        showBooks: showBooks
+        books,
+        deleteBookById,
+        editBookById,
+        createBook,
+        fetchBooks
     };
 
     // include valueToShare as a prop, including everything we want to share
     return(
-        <BooksContext.Provider value={{valueToShare}}>
+        <BooksContext.Provider value={valueToShare}>
             {children}
         </BooksContext.Provider>
-    )
+    );
 };
 
 // Provider exported with a named export

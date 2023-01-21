@@ -1,8 +1,24 @@
 {
   "books": [
     {
-      "title": "Great Times, Frank!",
+      "title": "Such a great book",
       "id": 1
+    },
+    {
+      "title": "You're a whizard hairy",
+      "id": 3
+    },
+    {
+      "title": "awesome blossom",
+      "id": 4
+    },
+    {
+      "title": "Kewl Catz",
+      "id": 5
+    },
+    {
+      "title": "Fleuradah",
+      "id": 6
     }
   ]
 }

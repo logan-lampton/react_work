@@ -1,21 +1,24 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import BooksContext from '../context/books';
 import BookEdit from './BookEdit';
 
-function BookShow({ book, onDelete, onEdit }) {
+
+function BookShow({ book }) {
     const [showEdit, setShowEdit] = useState(false);
+
+    const { deleteBookById } = useContext(BooksContext);
     
     // make a handleDeleteClick instead of directly calling onDelete on the onClick, since onDelete needs the id of the book
     const handleDeleteClick = () => {
-        onDelete(book.id);
+        deleteBookById(book.id);
     };
 
     const handleEditClick = () => {
         setShowEdit(!showEdit);
     };
 
-    const handleSubmit = (id, newTitle) => {
+    const handleSubmit = () => {
         setShowEdit(false);
-        onEdit(id, newTitle);
     };
 
     // toggle logic to show component BookEdit

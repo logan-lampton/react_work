@@ -10,7 +10,7 @@ function App() {
     // utilize useEffect to only fetch the books array, when the page is first rendered
     // [] as second argument means it is never called again after the first render
     useEffect(() => {
-        fetchBooks()
+        fetchBooks();
     }, []);
 
     return(

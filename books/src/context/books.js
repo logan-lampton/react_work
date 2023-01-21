@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useCallback } from 'react';
 // be sure to import axios
 import axios from 'axios';
 
@@ -9,10 +9,12 @@ function Provider({ children }) {
     // create a state array for all the books, called 'books'
     const [books, setBooks] = useState([]);
 
-    const fetchBooks = async () => {
+    // WRAP IN useCallback TO FIX ESLINT WARNING
+    // Second arguement (located at the end of the function) is an empty array
+    const fetchBooks = useCallback(async () => {
         const response = await axios.get('http://localhost:3001/books');
         setBooks(response.data);
-    };
+    }, []);
 
      // instead of 'title: title' in updatedBooks, we can just write 'title'
     // React doesn't talk to the server, so we are using axios

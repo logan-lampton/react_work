@@ -53,11 +53,23 @@ function Provider({ children }) {
         setBooks(updatedBooks);
     };
 
+    // to really demonstrate what we are sharing in the Context Provider
+    // need to declare keys for the values we are sharing
+    // we could save typing by making the keys and values the same, then just writing out one word for both
+        // Instead of 'books: books', it would just read as 'books'
+    const valueToShare = {
+        books: books,
+        deleteBookById: deleteBookById,
+        editBookById: editBookById,
+        createBook: createBook,
+        showBooks: showBooks
+    };
+
+    // include valueToShare as a prop, including everything we want to share
     return(
-        <BooksContext.Provider value={{}}>
+        <BooksContext.Provider value={{valueToShare}}>
             {children}
         </BooksContext.Provider>
-
     )
 };
 

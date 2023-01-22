@@ -4,16 +4,19 @@ function App() {
     return (
         <>
         <div>
-            <Button />
+            <Button>Click Me!</Button>
         </div>
         <div>
-            <Button />
+            <Button>No Me!</Button>
         </div>
         <div>
-            <Button />
+            <Button>I'm the Button to Click!</Button>
         </div>
         <div>
-            <Button />
+            <Button>Not Me Please</Button>
+        </div>
+        <div>
+            <Button>These buttons, Amiright?!?</Button>
         </div>
         </>
     )

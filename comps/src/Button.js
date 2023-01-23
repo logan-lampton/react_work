@@ -2,6 +2,9 @@
 // npm install prop-types
 import PropTypes from 'prop-types';
 
+// CSS box model
+    // margin -> border -> padding -> content
+
 // use the 'children' prop to have anything typed between the buttons appear, including other components like icons
 function Button({ 
     children,
@@ -13,11 +16,12 @@ function Button({
     outline,
     rounded
 }) {
-    if(primary && secondary) {
-        throw new Error('Primary and secondary should not be used on the same element');
-    };
 
-    return <button>{children}</button>;
+    return( 
+        // use tailwind rules for:
+            // padding, border-width, border-color, background-color, text-color
+        <button className="px-3 py-1.5 border border-blue-600 bg-blue-500 text-white">{children}</button>
+    )
 }
 
 // underneath the component

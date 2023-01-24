@@ -1,10 +1,25 @@
+// define state in Accordion, since no other components need access
+import { useState } from 'react';
+// event handlers should be in the same component as the state it modifies
+
+// NOTE: JS doesn't show booleans on the screen (true, false, null, undefined)
+    // || gives the first truthy value
+    //  && gives back the first falsey value or the last truthy value
+
 function Accordion({ items }) {
-    const renderedItems = items.map((item) => {
+    // state
+    // by default the first item (index 0) will be expanded
+    const [expandedIndex, setExpandedIndex] = useState(0);
+    
+    // remember to assign a key using the id on the highest element
+    const renderedItems = items.map((item, index) => {
+        const isExpanded = index === expandedIndex;
+
         return(
-            // remember to assign a key using the id on the highest element
             <div key={item.id}>
-                <div>{item.label}</div>
-                <div>{item.content}</div>
+                <div onClick={() => setExpandedIndex(index)}>{item.label}</div>
+                {isExpanded && <div>{item.content}</div>}
+                <br></br>
             </div>
         )
     })

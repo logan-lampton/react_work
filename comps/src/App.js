@@ -1,5 +1,8 @@
 import Button from './Button';
 
+// npm install react-icons
+import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
+
 function App() {
     
     // button props
@@ -10,13 +13,13 @@ function App() {
     return (
         <>
         <div>
-            <Button primary rounded>Click Me!</Button>
+            <Button primary rounded><GoBell />Click Me!</Button>
         </div>
         <div>
-            <Button warning outline>No Me!</Button>
+            <Button warning outline><GoCloudDownload />No Me!</Button>
         </div>
         <div>
-            <Button success>I'm the Button to Click!</Button>
+            <Button success><GoDatabase />I'm the Button to Click!</Button>
         </div>
         <div>
             <Button danger rounded>Not Me Please</Button>

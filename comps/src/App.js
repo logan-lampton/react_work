@@ -17,7 +17,7 @@ function App() {
     return (
         <>
         <div>
-            <Button primary rounded onClick={handleClick}><GoBell />Click Me!</Button>
+            <Button className = "mb-5" primary rounded onClick={handleClick}><GoBell />Click Me!</Button>
         </div>
         <div>
             <Button warning outline><GoCloudDownload />No Me!</Button>

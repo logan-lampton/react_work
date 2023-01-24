@@ -23,23 +23,24 @@ function Accordion({ items }) {
     // remember to assign a key using the id on the highest element
     const renderedItems = items.map((item, index) => {
         const isExpanded = index === expandedIndex;
-        const icon = <span>
+        const icon = 
+        <span className="text-2xl">
             {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
         </span>
         return(
             <div key={item.id}>
-                <div onClick={() => handleClick(index)}>
-                    {icon}
+                <div className="flex p-3 bg-gray-50 border-b items-center cursor-pointer justify-between" onClick={() => handleClick(index)}>
                     {item.label}
+                    {icon}
                 </div>
-                {isExpanded && <div>{item.content}</div>}
+                {isExpanded && <div className="border-b p-5">{item.content}</div>}
                 <br></br>
             </div>
         )
     })
     
     return (
-        <div>{renderedItems}</div>
+        <div className="border-x border-t rounded">{renderedItems}</div>
     )
 }
 

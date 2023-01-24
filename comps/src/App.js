@@ -10,19 +10,19 @@ function App() {
     return (
         <>
         <div>
-            <Button success rounded outline>Click Me!</Button>
+            <Button primary rounded outline>Click Me!</Button>
         </div>
         <div>
-            <Button danger outline>No Me!</Button>
+            <Button warning outline>No Me!</Button>
         </div>
         <div>
-            <Button warning>I'm the Button to Click!</Button>
+            <Button success>I'm the Button to Click!</Button>
         </div>
         <div>
-            <Button primary rounded>Not Me Please</Button>
+            <Button danger rounded>Not Me Please</Button>
         </div>
         <div>
-            <Button danger outline>These buttons, Amiright?!?</Button>
+            <Button secondary outline>These buttons, Amiright?!?</Button>
         </div>
         </>
     )

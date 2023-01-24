@@ -10,7 +10,7 @@ function App() {
     return (
         <>
         <div>
-            <Button primary rounded outline>Click Me!</Button>
+            <Button primary rounded>Click Me!</Button>
         </div>
         <div>
             <Button warning outline>No Me!</Button>

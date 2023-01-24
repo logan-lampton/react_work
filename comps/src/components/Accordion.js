@@ -12,12 +12,18 @@ import { GoChevronDown, GoChevronLeft } from 'react-icons/go';
 
 function Accordion({ items }) {
     // state
-    // by default the first item (index 0) will be expanded
-    const [expandedIndex, setExpandedIndex] = useState(0);
+    // index of -1 will make all start collapsed
+    const [expandedIndex, setExpandedIndex] = useState(-1);
     
     // good to have event handler outside of the mapping function to avoid cluttering it, if we want one that gets longer
     const handleClick = (nextIndex) => {
-        setExpandedIndex(nextIndex);
+        setExpandedIndex((currentExpandedIndex) => {
+            if(currentExpandedIndex === nextIndex) {
+                return -1;
+            } else {
+                return nextIndex;
+            }
+        });
     };
 
     // remember to assign a key using the id on the highest element

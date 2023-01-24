@@ -1,36 +1,30 @@
-import Button from './components/Button';
-
-// npm install react-icons
-import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
+import ButtonPage from './pages/ButtonPage';
+import Accordion from './components/Accordion';
 
 function App() {
     
-    const handleClick = () => {
-        console.log('Clicked!');
-    }
-
-    // button props
-        // rounded: true or false
-        // outline: true or false
-        // purpose: generally a string that says what the purpose of the button is: "primary, secondary, success, warning, danger."
-
-    return (
+    const items = [
+        {
+            id: '1',
+            label: 'Can I use React on a project?',
+            content: 'Yes, you can!'
+        },
+        {
+            id: '2',
+            label: 'This is the best label',
+            content: 'Oh, totes, bro!'
+        },
+        {
+            id: '3',
+            label: 'Can pigs fly?',
+            content: `I don't place labels on swine!`
+        }
+    ]
+    
+    return ( 
         <>
-        <div>
-            <Button className = "mb-5" primary rounded onClick={handleClick}><GoBell />Click Me!</Button>
-        </div>
-        <div>
-            <Button warning outline><GoCloudDownload />No Me!</Button>
-        </div>
-        <div>
-            <Button success><GoDatabase />I'm the Button to Click!</Button>
-        </div>
-        <div>
-            <Button danger rounded>Not Me Please</Button>
-        </div>
-        <div>
-            <Button secondary outline>These buttons, Amiright?!?</Button>
-        </div>
+        <ButtonPage />
+        <Accordion items={items}/>
         </>
     )
 }

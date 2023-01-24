@@ -5,6 +5,10 @@ import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
 
 function App() {
     
+    const handleClick = () => {
+        console.log('Clicked!');
+    }
+
     // button props
         // rounded: true or false
         // outline: true or false
@@ -13,7 +17,7 @@ function App() {
     return (
         <>
         <div>
-            <Button primary rounded><GoBell />Click Me!</Button>
+            <Button primary rounded onClick={handleClick}><GoBell />Click Me!</Button>
         </div>
         <div>
             <Button warning outline><GoCloudDownload />No Me!</Button>

@@ -9,6 +9,7 @@ import classnames from 'classnames';
     // margin -> border -> padding -> content
 
 // use the 'children' prop to have anything typed between the buttons appear, including other components like icons
+// ...rest is a built in property to grab all other props that might be passed through, which we then call on the JSX button element
 function Button({ 
     children,
     primary,
@@ -17,7 +18,8 @@ function Button({
     warning,
     danger,
     outline,
-    rounded
+    rounded,
+    ...rest
 }) {
 
     // JS keys can't have a dash (-) unless it is wrapped as a string ('')
@@ -41,7 +43,8 @@ function Button({
     return( 
         // use tailwind rules for:
             // padding, border-width, border-color, background-color, text-color
-        <button className={classes}>{children}</button>
+            // {...rest} applies any onClick, onHover, etc. to the button
+        <button {...rest} className={classes}>{children}</button>
     );
 }
 

@@ -17,13 +17,11 @@ function Accordion({ items }) {
     
     // good to have event handler outside of the mapping function to avoid cluttering it, if we want one that gets longer
     const handleClick = (nextIndex) => {
-        setExpandedIndex((currentExpandedIndex) => {
-            if(currentExpandedIndex === nextIndex) {
-                return -1;
-            } else {
-                return nextIndex;
-            }
-        });
+        if(expandedIndex === nextIndex) {
+            setExpandedIndex(-1)
+        } else {
+        setExpandedIndex(nextIndex);
+        }
     };
 
     // remember to assign a key using the id on the highest element

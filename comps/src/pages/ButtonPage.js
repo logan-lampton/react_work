@@ -20,16 +20,16 @@ function ButtonPage() {
             <Button className = "mb-5" primary rounded onClick={handleClick}><GoBell />Click Me!</Button>
         </div>
         <div>
-            <Button warning outline><GoCloudDownload />No Me!</Button>
+            <Button className = "mb-5" warning outline><GoCloudDownload />No Me!</Button>
         </div>
         <div>
-            <Button success><GoDatabase />I'm the Button to Click!</Button>
+            <Button className = "mb-5" success><GoDatabase />I'm the Button to Click!</Button>
         </div>
         <div>
-            <Button danger rounded>Not Me Please</Button>
+            <Button className = "mb-5" danger rounded>Not Me Please</Button>
         </div>
         <div>
-            <Button secondary outline>These buttons, Amiright?!?</Button>
+            <Button className = "mb-5" secondary outline>These buttons, Amiright?!?</Button>
         </div>
         </>
     )

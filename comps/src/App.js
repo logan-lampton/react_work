@@ -8,9 +8,9 @@ function App() {
     
     return ( 
         <>
-        <Link to="/accordion">Go to accordion</Link>
-        <Link to="/dropdown">Go to dropdown</Link>
-        <Link to="/buttons">Go to buttons</Link>
+        <Link to="/accordion">Accordion</Link>
+        <Link to="/dropdown">Dropdown</Link>
+        <Link to="/buttons">Buttons</Link>
         <div>
             <Route path="/accordion">
                 <AccordionPage />

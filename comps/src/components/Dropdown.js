@@ -1,10 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GoChevronDown } from 'react-icons/go';
 import Panel from './Panel';
 
 function Dropdown( {options, value, onChange} ) {
     // define state
     const [isOpen, setIsOpen] = useState(false);
+
+    // directly references where we put this in the JSX in the Dropdown component return
+    const divEl = useRef();
+
+    // The purpose of this function is to close the dropdown if the user clicks somewhere else while it is open
+    // empty array to only call on the first page render ([])
+    // use a cleanUp function
+    useEffect(() => {
+        const handler = (event) => {
+            // check to make sure that the element that useRef() is assigned to is rendered Ex: it might be hidden sometimes
+            if(!divEl.current) {
+                return;
+            }
+            if(!divEl.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener('click', handler, true);
+        return () => {
+            document.removeEventListener('click', handler);
+        };
+    }, []);
 
     // create event handler for clicking on 'Select...'
     const handleClick = () => {
@@ -32,7 +54,7 @@ function Dropdown( {options, value, onChange} ) {
 
     return (
         <>
-            <div className="w-48 relative">
+            <div ref={divEl} className="w-48 relative">
                 <Panel className="flex justify-between items-center cursor-pointer" onClick={handleClick}>
                     {/* if there is a selection, show value.label; OR (so, if not) show 'Select...' */}
                     {value?.label || 'Select...'}

@@ -1,6 +1,6 @@
-function Table() {
+function Table({ data }) {
     return (
-        <div>Table</div>
+        <div>{data.length}</div>
     );
 };
 

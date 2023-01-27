@@ -15,12 +15,22 @@ function ModalPage() {
     const handleClose = () => {
         setShowModal(false);
     };
+
+    const actionBar = <div>
+            <Button onClick={handleClose} primary>I Accept</Button>
+        </div>
+
+    const modal = <Modal onClose={handleClose} actionBar={actionBar}>
+        <p>
+            This is important! Do you accept that this is important?
+        </p>    
+    </Modal>
     
     return (
         <div>
             <Button onClick={handleClick} primary>Open Modal</Button>
            {/* only show Modal if setModal(true) */}
-           {showModal && <Modal onClose={handleClose} />}
+           {showModal && modal}
         </div>
     )
 };

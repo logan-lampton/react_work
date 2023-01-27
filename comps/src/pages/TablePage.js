@@ -15,7 +15,7 @@ function TablePage() {
         },
         { 
             label: 'Color',
-            render: (fruit) => fruit.color,
+            render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`}></div>,
         },
         { 
             label: 'Score',
@@ -23,9 +23,14 @@ function TablePage() {
         },
     ];
 
+    // function to generate a key; would change for each table, depending on what value would be best for a key
+    const keyFn = (fruit) => {
+        return fruit.name;
+    };
+
     return(
         <div>
-            <Table data={data} config={config} />
+            <Table data={data} config={config} keyFn={keyFn} />
         </div>
     );
 };

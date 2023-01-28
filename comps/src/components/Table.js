@@ -1,6 +1,10 @@
 function Table({ data, config, keyFn }) {
     // render the column headers
     const renderedHeaders = config.map((column) => {
+        if(column.header){
+           return column.header();
+        };
+        
         return (
             <th key={column.label}>{column.label}</th>    
         );
@@ -35,3 +39,4 @@ function Table({ data, config, keyFn }) {
 };
 
 export default Table;
+

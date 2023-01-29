@@ -1,8 +1,11 @@
+import { Fragment } from 'react';
+// Fragment is built in and can be used to add JSX elements without actually adding any new content
+
 function Table({ data, config, keyFn }) {
     // render the column headers
     const renderedHeaders = config.map((column) => {
         if(column.header){
-           return <div key="column.label">column.header()</div>
+           return <Fragment key="column.label">column.header()</Fragment>
         };
         
         return (

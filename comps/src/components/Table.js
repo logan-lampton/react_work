@@ -2,7 +2,7 @@ function Table({ data, config, keyFn }) {
     // render the column headers
     const renderedHeaders = config.map((column) => {
         if(column.header){
-           return column.header();
+           return <div key="column.label">column.header()</div>
         };
         
         return (

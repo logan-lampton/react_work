@@ -6,7 +6,7 @@ function SortableTable(props) {
     // by default the table is unsorted
     const [sortOrder, setSortOrder] = useState(null);
     const [sortBy, setSortBy] = useState(null);
-    const { config } = props;
+    const { config, data } = props;
 
     const handleClick = (label) => {
         if(sortOrder === null) {
@@ -30,11 +30,30 @@ function SortableTable(props) {
         };
     });
 
+    // Only sort data if sortOrder && sortBy are not null
+    // Make a copy of the data prop
+        // NEVER modify a prop
+    let sortedData = data;
+    if(sortOrder && sortBy) {
+        const { sortValue } = config.find(column => column.label === sortBy);
+        sortedData = [...data].sort((a, b) => {
+            const valueA = sortValue(a);
+            const valueB = sortValue(b);
+
+            const reverseOrder = sortOrder === 'asc' ? 1: -1
+            if (typeof valueA === 'string') {
+                return valueA.localeCompare(valueB) * reverseOrder;
+            } else {
+                return (valueA - valueB) * reverseOrder;
+            };
+        });
+    };
+
     // by passing in config as a prop AFTER ...props, it will override any differences
     return (
         <>
             {sortOrder} - {sortBy}
-            <Table {...props} config={updatedConfig} />
+            <Table {...props} config={updatedConfig} data={sortedData}/>
         </>
     )
 };

@@ -5,7 +5,7 @@ function Table({ data, config, keyFn }) {
     // render the column headers
     const renderedHeaders = config.map((column) => {
         if(column.header){
-           return <Fragment key="column.label">column.header()</Fragment>
+           return <Fragment key={column.label}>{column.header()}</Fragment>
         };
         
         return (

@@ -3,7 +3,9 @@
     // import produce from 'immer'
     // wrap reducer in useReducer witch produce
         // useReducer(produce(reducer), {...})
-
+    // Ex: case INCREMENT COUNT:
+        // state.count = state.count + 1;
+        // return;
 
 import { useReducer } from 'react';
 import Button from '../components/Button';

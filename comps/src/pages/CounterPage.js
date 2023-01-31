@@ -6,7 +6,8 @@ import Panel from '../components/Panel';
     // variable mispellings throw error messages, unlike strings
 const INCREMENT_COUNT = 'increment';
 const SET_VALUE_TO_ADD = 'change-value-to-add';
-const DECREMENT_COUNT = 'decrement'
+const DECREMENT_COUNT = 'decrement';
+const ADD_VALUE_TO_COUNT = 'add_value_to_count';
 
 // No async/await, requests, promises or outside variables in reducer functions
 // NEVER directly modify the state object
@@ -27,6 +28,12 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 valueToAdd: action.payload
+            };
+        case ADD_VALUE_TO_COUNT:
+            return {
+                ...state,
+                count: state.count + state.valueToAdd,
+                valueToAdd: 0
             };
         // no matter what, at least return the current state
         default: 
@@ -68,8 +75,9 @@ function CounterPage({ initialCount }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // setCount(count + valueToAdd);
-        // setValueToAdd(0);
+        dispatch({
+            type: ADD_VALUE_TO_COUNT
+        });
     };
 
     return (

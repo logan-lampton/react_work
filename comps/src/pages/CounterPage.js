@@ -2,13 +2,32 @@ import { useReducer } from 'react';
 import Button from '../components/Button';
 import Panel from '../components/Panel';
 
+// No async/await, requests, promises or outside variables in reducer functions
+// NEVER directly modify the state object
 const reducer = (state, action) => {
-
+    if(action.type === 'increment') {
+        return {
+            ...state,
+            count: state.count + 1
+        };
+    };
+    if(action.type === 'decrement') {
+        return {
+            ...state,
+            count: state.count - 1
+        };
+    };
+    if(action.type === 'change-value-to-add') {
+        return {
+            ...state,
+            valueToAdd: action.payload
+        };
+    };
+    // no matter what, at least return the current state
+    return state;
 };
 
 function CounterPage({ initialCount }) {
-    // const [count, setCount] = useState(initialCount);
-    // const [valueToAdd, setValueToAdd] = useState(0);
     // reducer state makes an object
         // state.count, state.valueToAdd
     const [state, dispatch] = useReducer(reducer, {
@@ -17,18 +36,27 @@ function CounterPage({ initialCount }) {
     });
 
     const increment = () => {
-        // setCount(count + 1);
+        dispatch({
+            // can call the string whatever we want
+            type: 'increment'
+        });
     };
 
     const decrement = () => {
-        // setCount(count - 1);
+        dispatch({
+            type: 'decrement'
+        });
     };
 
     const handleChange = (event) => {
         // might want to use parseFloat instead
         // OR 0, makes the value 0 if the user doesn't provide one
         const value = parseInt(event.target.value) || 0;
-        // setValueToAdd(value);
+        // if we need to pass a value, add a payload
+        dispatch({
+            type: 'change-value-to-add',
+            payload: value
+        });
     };
 
     const handleSubmit = (event) => {

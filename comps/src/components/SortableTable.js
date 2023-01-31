@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Table from './Table';
+import { GoArrowSmallDown, GoArrowSmallUp } from 'react-icons/go';
 
 // take all the props and pass them through to Table.js
 function SortableTable(props) {
@@ -25,8 +26,17 @@ function SortableTable(props) {
         if(!column.sortValue) {
             return column;
         }
+        
         return {
-            ...column, header: () => <th onClick={() => handleClick(column.label)}>{column.label} IS SORTABLE</th>
+            ...column, 
+            header: () => (
+                <th className="cursor-pointer hover:bg-gray-100" onClick={() => handleClick(column.label)}>
+                    <div className="flex items-center">
+                        {getIcons(column.label, sortBy, sortOrder)}
+                        {column.label}
+                    </div>
+                </th>
+            )
         };
     });
 
@@ -52,10 +62,33 @@ function SortableTable(props) {
     // by passing in config as a prop AFTER ...props, it will override any differences
     return (
         <>
-            {sortOrder} - {sortBy}
             <Table {...props} config={updatedConfig} data={sortedData}/>
         </>
     )
 };
+
+function getIcons(label, sortBy, sortOrder) {
+    if(label !== sortBy) {
+        return (
+            <div>
+                <GoArrowSmallUp />
+                <GoArrowSmallDown />
+            </div>
+        )
+    }
+
+    if(sortOrder === null) {
+        return (
+            <div>
+                <GoArrowSmallUp />
+                <GoArrowSmallDown />
+            </div>
+        )
+    } else if (sortOrder === 'asc') {
+        return <GoArrowSmallUp />
+    } else {
+        return <GoArrowSmallDown />
+    }
+}
 
 export default SortableTable;

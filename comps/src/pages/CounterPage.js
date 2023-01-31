@@ -1,36 +1,46 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import Button from '../components/Button';
 import Panel from '../components/Panel';
 
+const reducer = (state, action) => {
+
+};
+
 function CounterPage({ initialCount }) {
-    const [count, setCount] = useState(initialCount);
-    const [valueToAdd, setValueToAdd] = useState(0);
+    // const [count, setCount] = useState(initialCount);
+    // const [valueToAdd, setValueToAdd] = useState(0);
+    // reducer state makes an object
+        // state.count, state.valueToAdd
+    const [state, dispatch] = useReducer(reducer, {
+        count: initialCount,
+        valueToAdd: 0
+    });
 
     const increment = () => {
-        setCount(count + 1);
+        // setCount(count + 1);
     };
 
     const decrement = () => {
-        setCount(count - 1);
+        // setCount(count - 1);
     };
 
     const handleChange = (event) => {
         // might want to use parseFloat instead
         // OR 0, makes the value 0 if the user doesn't provide one
         const value = parseInt(event.target.value) || 0;
-        setValueToAdd(value);
+        // setValueToAdd(value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setCount(count + valueToAdd);
-        setValueToAdd(0);
+        // setCount(count + valueToAdd);
+        // setValueToAdd(0);
     };
 
     return (
         <>
             <Panel className="m-3">
-                <h1 className="text-lg">Count is {count}</h1>
+                <h1 className="text-lg">Count is {state.count}</h1>
                 <div className="flex flex-row">
                     <Button onClick={increment}>Increment</Button>
                     <Button onClick={decrement}>Decrement</Button>
@@ -41,7 +51,7 @@ function CounterPage({ initialCount }) {
                 <label>Add a lot!</label>
                 <input 
                 // || "" prevents the input from always having a "0"
-                    value={valueToAdd || ""}
+                    value={state.valueToAdd || ""}
                     onChange={handleChange}
                     type="number" 
                     className="p-1 m-3 bg-gray-50 border border-gray-300" />

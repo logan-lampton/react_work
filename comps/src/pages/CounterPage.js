@@ -1,3 +1,10 @@
+// If used (not used here), the immer library allows you to change state directly in reducer
+    // (in terminal) npm install immer 
+    // import produce from 'immer'
+    // wrap reducer in useReducer witch produce
+        // useReducer(produce(reducer), {...})
+
+
 import { useReducer } from 'react';
 import Button from '../components/Button';
 import Panel from '../components/Panel';
@@ -29,6 +36,7 @@ const reducer = (state, action) => {
                 ...state,
                 valueToAdd: action.payload
             };
+        // add the value from the form to count, then reset the form (valueToAdd = 0)
         case ADD_VALUE_TO_COUNT:
             return {
                 ...state,

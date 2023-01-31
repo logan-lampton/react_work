@@ -2,29 +2,36 @@ import { useReducer } from 'react';
 import Button from '../components/Button';
 import Panel from '../components/Panel';
 
+// community conventions to prevent typos
+    // variable mispellings throw error messages, unlike strings
+const INCREMENT_COUNT = 'increment';
+const SET_VALUE_TO_ADD = 'change-value-to-add';
+const DECREMENT_COUNT = 'decrement'
+
 // No async/await, requests, promises or outside variables in reducer functions
 // NEVER directly modify the state object
+// could use if statements, switch statement is below
 const reducer = (state, action) => {
-    if(action.type === 'increment') {
-        return {
-            ...state,
-            count: state.count + 1
-        };
-    };
-    if(action.type === 'decrement') {
-        return {
-            ...state,
-            count: state.count - 1
-        };
-    };
-    if(action.type === 'change-value-to-add') {
-        return {
-            ...state,
-            valueToAdd: action.payload
-        };
-    };
-    // no matter what, at least return the current state
-    return state;
+    switch (action.type) {
+        case INCREMENT_COUNT: 
+            return {
+                ...state,
+                count: state.count + 1
+            };
+        case DECREMENT_COUNT:
+            return {
+                ...state,
+                count: state.count - 1
+            };
+        case SET_VALUE_TO_ADD:
+            return {
+                ...state,
+                valueToAdd: action.payload
+            };
+        // no matter what, at least return the current state
+        default: 
+            return state;
+    }
 };
 
 function CounterPage({ initialCount }) {
@@ -38,13 +45,13 @@ function CounterPage({ initialCount }) {
     const increment = () => {
         dispatch({
             // can call the string whatever we want
-            type: 'increment'
+            type: INCREMENT_COUNT
         });
     };
 
     const decrement = () => {
         dispatch({
-            type: 'decrement'
+            type: DECREMENT_COUNT
         });
     };
 
@@ -54,7 +61,7 @@ function CounterPage({ initialCount }) {
         const value = parseInt(event.target.value) || 0;
         // if we need to pass a value, add a payload
         dispatch({
-            type: 'change-value-to-add',
+            type: SET_VALUE_TO_ADD,
             payload: value
         });
     };

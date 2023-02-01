@@ -27,10 +27,12 @@ const store = configureStore({
     }
 });
 
-const startingState = store.getState();
-console.log(JSON.stringify(startingState));
+// const startingState = store.getState();
+// console.log(JSON.stringify(startingState));
 
-store.dispatch(songsSlice.actions.addSong('Cool song'));
+// store.dispatch(songsSlice.actions.addSong('Cool song'));
 
-const finalState = store.getState();
-console.log(JSON.stringify(finalState));
+// const finalState = store.getState();
+// console.log(JSON.stringify(finalState));
+
+export { store };

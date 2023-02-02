@@ -1,4 +1,6 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice, createAction } from '@reduxjs/toolkit';
+
+export const reset = createAction('app/reset');
 
 // edit initial state here
 // reducers is like a mega-reducer that includes all of our reducers inside it
@@ -19,8 +21,8 @@ const songsSlice = createSlice({
     // to reset array, alongside movies array
     extraReducers(builder) {
         // builder.addCase() takes two arguments
-            // movie/reset accesses the movie/reset in moviesSlice
-        builder.addCase('movie/reset', (state, action) => {
+        //     movie/reset accesses the movie/reset in moviesSlice
+        builder.addCase(reset, (state, action) => {
             return [];
         })
     }
@@ -36,11 +38,12 @@ const moviesSlice = createSlice({
         removeMovie(state, action) {
             const index = state.indexOf(action.payload);
             state.splice(index, 1);
-        },
-        reset(state, action) {
-            // can't just write state = [], as that would reassign the variable
-            return [];
         }
+    },
+    extraReducers(builder) {
+        builder.addCase(reset, (state, action) => {
+            return [];
+        })
     }
 });
 
@@ -68,4 +71,4 @@ export { store };
 // export addSong function action creator
 export const { addSong, removeSong } = songsSlice.actions;
 
-export const { addMovie, removeMovie, reset } = moviesSlice.actions;
+export const { addMovie, removeMovie } = moviesSlice.actions;

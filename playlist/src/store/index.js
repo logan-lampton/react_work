@@ -15,6 +15,14 @@ const songsSlice = createSlice({
             const index = state.indexOf(action.payload);
             state.splice(index, 1)
         }
+    },
+    // to reset array, alongside movies array
+    extraReducers(builder) {
+        // builder.addCase() takes two arguments
+            // movie/reset accesses the movie/reset in moviesSlice
+        builder.addCase('movie/reset', (state, action) => {
+            return [];
+        })
     }
 });
 
@@ -28,6 +36,10 @@ const moviesSlice = createSlice({
         removeMovie(state, action) {
             const index = state.indexOf(action.payload);
             state.splice(index, 1);
+        },
+        reset(state, action) {
+            // can't just write state = [], as that would reassign the variable
+            return [];
         }
     }
 });
@@ -39,7 +51,7 @@ const moviesSlice = createSlice({
 const store = configureStore({
     reducer: {
         songs: songsSlice.reducer,
-        movies: moviesSlice.reducer
+        movies: moviesSlice.reducer,
     }
 });
 
@@ -56,4 +68,4 @@ export { store };
 // export addSong function action creator
 export const { addSong, removeSong } = songsSlice.actions;
 
-export const { addMovie, removeMovie } = moviesSlice.actions;
+export const { addMovie, removeMovie, reset } = moviesSlice.actions;

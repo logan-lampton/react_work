@@ -1,17 +1,24 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { addMovie, removeMovie } from '../store';
+
 import { createRandomMovie } from "../data";
 
 function MoviePlaylist() {
-  // To Do:
+  // call useDispatch
+  const dispatch = useDispatch();
+
   // Get list of movies
-  const moviePlaylist = [];
+  const moviePlaylist = useSelector((state) => {
+    // from the store object
+    return state.movies
+  });
 
   const handleMovieAdd = (movie) => {
-    // To Do:
-    // Add movie to list of movies
+    dispatch(addMovie(movie));
   };
   const handleMovieRemove = (movie) => {
-    // To Do:
     // Remove movie from list of movies
+    dispatch(removeMovie(movie))
   };
 
   const renderedMovies = moviePlaylist.map((movie) => {

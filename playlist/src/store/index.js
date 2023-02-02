@@ -18,13 +18,28 @@ const songsSlice = createSlice({
     }
 });
 
+const moviesSlice = createSlice({
+    name: 'movie',
+    initialState: [],
+    reducers: {
+        addMovie(state, action) {
+            state.push(action.payload); 
+        },
+        removeMovie(state, action) {
+            const index = state.indexOf(action.payload);
+            state.splice(index, 1);
+        }
+    }
+});
+
 // can debug the store with:
     // store.dispatch({ type: 'songs/addSong' });
     // OR store.getState();
 // the store is where we edit top level state
 const store = configureStore({
     reducer: {
-        songs: songsSlice.reducer
+        songs: songsSlice.reducer,
+        movies: moviesSlice.reducer
     }
 });
 
@@ -40,3 +55,5 @@ export { store };
 
 // export addSong function action creator
 export const { addSong, removeSong } = songsSlice.actions;
+
+export const { addMovie, removeMovie } = moviesSlice.actions;

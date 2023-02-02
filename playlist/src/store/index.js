@@ -36,3 +36,6 @@ const store = configureStore({
 // console.log(JSON.stringify(finalState));
 
 export { store };
+
+// export addSong function action creator
+export const { addSong } = songsSlice.actions;

@@ -1,25 +1,32 @@
-import { createRandomMovie } from "../data";
+import { createRandomSong } from "../data";
 
-function MoviePlaylist() {
-  // To Do:
-  // Get list of movies
-  const moviePlaylist = [];
+import { useDispatch, useSelector } from 'react-redux';
+import { addSong } from '../store';
 
-  const handleMovieAdd = (movie) => {
+function SongPlaylist() {
+  const dispatch = useDispatch();
+  // don't return ENTIRE state, just the state that it needs Ex: state.songs
+  const songPlaylist = useSelector((state) => {
+    return state.songs;
+  });
+
+  const handleSongAdd = (song) => {
+    // const action = addSong(song);
+    dispatch(addSong(song));
     // To Do:
-    // Add movie to list of movies
+    // Add song to list of songs
   };
-  const handleMovieRemove = (movie) => {
+  const handleSongRemove = (song) => {
     // To Do:
-    // Remove movie from list of movies
+    // Remove song from list of songs
   };
 
-  const renderedMovies = moviePlaylist.map((movie) => {
+  const renderedSongs = songPlaylist.map((song) => {
     return (
-      <li key={movie}>
-        {movie}
+      <li key={song}>
+        {song}
         <button
-          onClick={() => handleMovieRemove(movie)}
+          onClick={() => handleSongRemove(song)}
           className="button is-danger"
         >
           X
@@ -31,19 +38,19 @@ function MoviePlaylist() {
   return (
     <div className="content">
       <div className="table-header">
-        <h3 className="subtitle is-3">Movie Playlist</h3>
+        <h3 className="subtitle is-3">Song Playlist</h3>
         <div className="buttons">
           <button
-            onClick={() => handleMovieAdd(createRandomMovie())}
+            onClick={() => handleSongAdd(createRandomSong())}
             className="button is-link"
           >
-            + Add Movie to Playlist
+            + Add Song to Playlist
           </button>
         </div>
       </div>
-      <ul>{renderedMovies}</ul>
+      <ul>{renderedSongs}</ul>
     </div>
   );
 }
 
-export default MoviePlaylist;
+export default SongPlaylist;

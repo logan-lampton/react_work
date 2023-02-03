@@ -1,7 +1,7 @@
-function CarList() {
+function CarValue() {
     return(
-        <div>CarList</div>
+        <div>CarValue</div>
     )
 };
 
-export default CarList;
+export default CarValue;

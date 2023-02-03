@@ -5,7 +5,7 @@ const carsSlice = createSlice({
     name: 'cars',
     initialState: {
         searchTerm: '',
-        cars: []
+        data: []
     },
     reducers: {
         changeSearchTerm(state, action) {
@@ -13,7 +13,7 @@ const carsSlice = createSlice({
         },
         // assumption: action.payload === {name: 'x', cost: x, id: x}
         addCar(state, action) {
-            state.cars.push({
+            state.data.push({
                 name: action.payload.name,
                 cost: action.payload.cost,
                 id: nanoid()
@@ -21,10 +21,10 @@ const carsSlice = createSlice({
         },
         // 1. filter the cars array/assign to a new variable; 2. return an array without the car matching the id of the car; 3. make state.cars the updated variable that stands for the array without the car searched for
         removeCar(state, action) {
-            const updated = state.cars.filter((car) => {
+            const updated = state.data.filter((car) => {
                 return car.id !== action.payload
             })
-            state.cars = updated
+            state.data = updated
         }
     }
 });

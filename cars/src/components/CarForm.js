@@ -37,7 +37,7 @@ function CarForm() {
             <form onSubmit={handleSubmit}>
                 <div className="field-group">
                     <div className="field">
-                        <label className="label">Name: </label>
+                        <label className="label">Name:</label>
                         <input 
                             className="input is-expanded" 
                             value={name}
@@ -45,7 +45,7 @@ function CarForm() {
                         />
                     </div>
                     <div className="field">
-                        <label className="label">Cost: </label>
+                        <label className="label">Cost:</label>
                         <input 
                             className="input is-expanded" 
                             // cost || '' gets rid of a '0' always showing in the input
@@ -55,7 +55,7 @@ function CarForm() {
                         />
                     </div>
                 </div>
-                <div className="field">
+                <div>
                     <button className='button is-link'>Submit</button>
                 </div>
             </form>

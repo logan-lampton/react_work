@@ -18,7 +18,7 @@
   }
   .car-form .field label.label {
     margin-bottom: 0px;
-    width: 70px;
+    width: 100%;
   }
   .car-form input {
     width: 100%;

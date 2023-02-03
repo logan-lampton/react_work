@@ -5,8 +5,11 @@ import { removeCar } from '../store';
 function CarList() {
     const dispatch = useDispatch();
     
-    const cars = useSelector((state) => {
-        return state.cars.data
+    const cars = useSelector(({ cars: {data, searchTerm} }) => {
+        // filter
+        return data.filter((car) => 
+            car.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
         // the carsSlice big state object was named 'cars' and has an array with a key of 'data'
     });
     

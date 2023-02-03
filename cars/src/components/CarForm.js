@@ -33,7 +33,7 @@ function CarForm() {
 
     return(
         <div className="car-form panel">
-            <h4 className="subtitle is-3">Add Car</h4>
+            <h3 className="title is-3">Add Car</h3>
             <form onSubmit={handleSubmit}>
                 <div className="field-group">
                     <div className="field">

@@ -20,7 +20,7 @@ const usersSlice = createSlice({
     });
     builder.addCase(fetchUsers.rejected, (state, action) => {
         // show the user that the request failed
-        state.Loading = false;
+        state.isLoading = false;
         state.error = action.error;
     });
   }

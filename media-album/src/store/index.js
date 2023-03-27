@@ -6,3 +6,6 @@ export const store = configureStore({
     users: usersReducer,
   },
 });
+
+// export everything from fetchUsers
+export * from "./thunks/fetchUsers";

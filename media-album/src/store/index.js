@@ -10,3 +10,4 @@ export const store = configureStore({
 // * to export everything from the file
 export * from "./thunks/fetchUsers";
 export * from "./thunks/addUser";
+export * from "./thunks/deleteUser";

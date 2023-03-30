@@ -31,6 +31,16 @@
       "userId": 1,
       "title": "Oriental Rubber Hat",
       "id": 11
+    },
+    {
+      "userId": 1,
+      "title": "Electronic Concrete Soap",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "title": "Modern Bronze Car",
+      "id": 13
     }
   ],
   "photos": []

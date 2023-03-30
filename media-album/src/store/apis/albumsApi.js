@@ -10,19 +10,25 @@ const albumsApi = createApi({
   }),
   endpoints(builder) {
     return {
-        addAlbum: builder.mutation({
-            query: (user) => {
-                return {
-                    url: "/albums",
-                    method: "POST",
-                    body: {
-                        userId: user.id,
-                        title: faker.commerce.productName()
-                    }
-                }
-            }
-        }),
+      addAlbum: builder.mutation({
+        invalidatesTags: (result, error, arg) => {
+          return [{ type: "Album", id: arg.id }];
+        },
+        query: (user) => {
+          return {
+            url: "/albums",
+            method: "POST",
+            body: {
+              userId: user.id,
+              title: faker.commerce.productName(),
+            },
+          };
+        },
+      }),
       fetchAlbums: builder.query({
+        providesTags: (result, error, user) => {
+          return [{ type: "Album", id: user.id }];
+        },
         query: (user) => {
           return {
             url: "/albums",

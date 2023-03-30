@@ -61,6 +61,11 @@
       "userId": 5,
       "title": "Modern Granite Soap",
       "id": 20
+    },
+    {
+      "userId": 7,
+      "title": "Tasty Cotton Shirt",
+      "id": 21
     }
   ],
   "photos": [
@@ -103,6 +108,26 @@
       "albumId": 18,
       "url": "https://loremflickr.com/150/150/abstract?lock=22359",
       "id": 9
+    },
+    {
+      "albumId": 17,
+      "url": "https://loremflickr.com/150/150/abstract?lock=45678",
+      "id": 10
+    },
+    {
+      "albumId": 17,
+      "url": "https://loremflickr.com/150/150/abstract?lock=68022",
+      "id": 11
+    },
+    {
+      "albumId": 17,
+      "url": "https://loremflickr.com/150/150/abstract?lock=34143",
+      "id": 12
+    },
+    {
+      "albumId": 17,
+      "url": "https://loremflickr.com/150/150/abstract?lock=23526",
+      "id": 13
     }
   ]
 }

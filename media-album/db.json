@@ -43,14 +43,19 @@
       "id": 15
     },
     {
-      "userId": 1,
-      "title": "Tasty Rubber Computer",
-      "id": 16
-    },
-    {
       "userId": 7,
       "title": "Awesome Rubber Pants",
       "id": 17
+    },
+    {
+      "userId": 1,
+      "title": "Ergonomic Steel Chicken",
+      "id": 18
+    },
+    {
+      "userId": 6,
+      "title": "Gorgeous Concrete Cheese",
+      "id": 19
     }
   ],
   "photos": []

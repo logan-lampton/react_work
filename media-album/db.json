@@ -26,6 +26,11 @@
       "id": 10,
       "title": "Hiking Trip",
       "userId": 1
+    },
+    {
+      "userId": 1,
+      "title": "Oriental Rubber Hat",
+      "id": 11
     }
   ],
   "photos": []

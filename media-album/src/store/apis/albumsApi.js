@@ -5,10 +5,10 @@ import { faker } from "@faker-js/faker";
 
 // DEV ONLY; remove for final version
 const pause = (duration) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, duration);
-    });
-  };
+  return new Promise((resolve) => {
+    setTimeout(resolve, duration);
+  });
+};
 
 const albumsApi = createApi({
   reducerPath: "albums",
@@ -17,12 +17,20 @@ const albumsApi = createApi({
     // REMOVE FOR PRODUCTION
     // overrides fetch to introduce a pause
     fetchFn: async (...args) => {
-        await pause(1000);
-        return fetch(...args);
-    }
+      await pause(1000);
+      return fetch(...args);
+    },
   }),
   endpoints(builder) {
     return {
+      deleteAlbum: builder.mutation({
+        query: (album) => {
+          return {
+            url: `/albums/${album.id}`,
+            method: "DELETE",
+          };
+        },
+      }),
       addAlbum: builder.mutation({
         invalidatesTags: (result, error, arg) => {
           return [{ type: "Album", id: arg.id }];
@@ -56,5 +64,5 @@ const albumsApi = createApi({
   },
 });
 
-export const { useFetchAlbumsQuery, useAddAlbumMutation } = albumsApi;
+export const { useFetchAlbumsQuery, useAddAlbumMutation, useDeleteAlbumMutation } = albumsApi;
 export { albumsApi };

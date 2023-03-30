@@ -23,16 +23,6 @@
   ],
   "albums": [
     {
-      "id": 10,
-      "title": "Hiking Trip",
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "title": "Oriental Rubber Hat",
-      "id": 11
-    },
-    {
       "userId": 1,
       "title": "Electronic Concrete Soap",
       "id": 12
@@ -51,6 +41,11 @@
       "userId": 6,
       "title": "Licensed Fresh Table",
       "id": 15
+    },
+    {
+      "userId": 1,
+      "title": "Tasty Rubber Computer",
+      "id": 16
     }
   ],
   "photos": []

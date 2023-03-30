@@ -3,10 +3,23 @@ import { faker } from "@faker-js/faker";
 
 // reducerPath is a propert on the big state object where all of the keys/data of the API state should be maintained
 
+// DEV ONLY; remove for final version
+const pause = (duration) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, duration);
+    });
+  };
+
 const albumsApi = createApi({
   reducerPath: "albums",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3005",
+    // REMOVE FOR PRODUCTION
+    // overrides fetch to introduce a pause
+    fetchFn: async (...args) => {
+        await pause(1000);
+        return fetch(...args);
+    }
   }),
   endpoints(builder) {
     return {

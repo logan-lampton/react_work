@@ -56,7 +56,38 @@
       "userId": 6,
       "title": "Gorgeous Concrete Cheese",
       "id": 19
+    },
+    {
+      "userId": 5,
+      "title": "Modern Granite Soap",
+      "id": 20
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": 20,
+      "url": "https://loremflickr.com/150/150/abstract?lock=18942",
+      "id": 1
+    },
+    {
+      "albumId": 20,
+      "url": "https://loremflickr.com/150/150/abstract?lock=71406",
+      "id": 2
+    },
+    {
+      "albumId": 19,
+      "url": "https://loremflickr.com/150/150/abstract?lock=56302",
+      "id": 3
+    },
+    {
+      "albumId": 12,
+      "url": "https://loremflickr.com/150/150/abstract?lock=87520",
+      "id": 4
+    },
+    {
+      "albumId": 12,
+      "url": "https://loremflickr.com/150/150/abstract?lock=89183",
+      "id": 5
+    }
+  ]
 }
